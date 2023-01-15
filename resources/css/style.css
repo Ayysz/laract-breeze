@@ -194,6 +194,11 @@ body {
   table{
     margin-bottom: 20px;
   }
+
+  td.bar {
+    width: 25%;
+  }
+
   th {
     border-bottom: 1px solid black;
     text-align: center;
