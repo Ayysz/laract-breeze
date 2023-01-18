@@ -1,8 +1,8 @@
-@extends('layout.main')
+@extends('main.layout')
 @section('content')
     <center>
         <h2>TAMBAH DATA JURUSAN</h2>
-        <form action="/jurusa/update/{{ $jurusan->id }}" method="post">
+        <form action="/jurusan/update/{{ $jurusan->id }}" method="post">
             @csrf
             <table width="50%">
                 <tr>

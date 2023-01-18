@@ -2,19 +2,19 @@
 @section('content')
     <center>
         <h2>TAMBAH DATA SISWA</h2>
-        <form action="/siswa/store" method="post">
+        <form action="/siswa/update/{{$siswa->id}}" method="post">
             @csrf
             <table width="50%">
                 <tr>
                     <td class="bar">NIS</td>
                     <td class="bar">
-                        <input type="text" name="nis">
+                        <input type="text" name="nis" value="{{$siswa->nis}}">
                     </td>
                 </tr>
                 <tr>
                     <td class="bar">NAMA SISWA</td>
                     <td class="bar">
-                        <input type="text" name="nama_siswa">
+                        <input type="text" name="nama_siswa" value="{{$siswa->nama_siswa}}">
                     </td>
                 </tr>
                 <tr>
@@ -36,7 +36,9 @@
                         <select name="kelas_id">
                             <option>--Pilih Kelas</option>
                             @foreach ($kelas as $k)
-                                <option value="{{$k->id}}">{{$k->nama_kelas}}</option>
+                                <option value="{{$k->id}}"
+                                {{ $k->id == $siswa->kelas_id ? 'selected' : '' }}
+                                >{{$k->nama_kelas}}</option>
                             @endforeach
                         </select>
                     </td>

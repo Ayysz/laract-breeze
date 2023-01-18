@@ -5,9 +5,9 @@
             <h2>LIST DATA MENGJAR</h2>
             <a href="/mengajar/create" class="button-primary">TAMBAH DATA</a>
             
-            @include('layout.main')
+            @include('layouts.info')
 
-            <table cellpadding="10">
+            <table cellPadding="10" style="text-align: center;">
                 <tr>
                     <th>NO</th>
                     <th>GURU </th>

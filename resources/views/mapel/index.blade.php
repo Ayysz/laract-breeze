@@ -1,10 +1,10 @@
-@extends('layout.main')
+@extends('main.layout')
 @section('content')
     <center>
         <b>
             <h2>LIST DATA MATA PELAJARAN</h2>
             <a href="/mapel/create" class="button-primary">TAMBAH DATA</a>
-            @include('layout.main')
+            @include('layouts.info')
 
             <table cellpadding="10">
                 <tr>

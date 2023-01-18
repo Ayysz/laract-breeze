@@ -4,7 +4,7 @@
         <b>
             <h2>LIST DATA KELAS</h2>
             <a href="/kelas/create" class="button-primary">TAMBAH DATA</a>
-            @include('layout.info')
+            @include('layouts.info')
 
             <table cellpadding="10">
                 <tr>

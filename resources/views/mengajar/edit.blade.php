@@ -11,7 +11,9 @@
                         <select name="guru_id">
                             <option>--Pilih Guru</option>
                             @foreach ($guru as $g)
-                                <option value="{{$g->id}}">{{$g->nama_guru}}</option>
+                                <option value="{{$g->id}}"
+                                {{ $mengajar->guru_id == $g->id ? 'selected' : '' }}
+                                >{{$g->nama_guru}}</option>
                             @endforeach
                         </select>
                     </td>
@@ -22,7 +24,9 @@
                         <select name="mapel_id">
                             <option>--Pilih Mata Pelajaran</option>
                             @foreach ($mapel as $m)
-                                <option value="{{$m->id}}">{{$m->nama_mapel}}</option>
+                                <option value="{{$m->id}}"
+                                {{ $mengajar->mapel_id == $m->id ? 'selected' : '' }}
+                                >{{$m->nama_mapel}}</option>
                             @endforeach
                         </select>
                     </td>
@@ -33,7 +37,10 @@
                         <select name="kelas_id">
                             <option>--Pilih Kelas</option>
                             @foreach ($kelas as $k)
-                                <option value="{{$k->id}}">{{$k->nama_kelas}} {{$k->jurusan->nama_jurusan}} </option>
+                                <option 
+                                value="{{$k->id}}"
+                                {{ $mengajar->kelas_id == $k->id ? 'selected' : '' }}
+                                >{{$k->nama_kelas}} {{$k->jurusan->nama_jurusan}} </option>
                             @endforeach
                         </select>
                     </td>

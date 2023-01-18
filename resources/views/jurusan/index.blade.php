@@ -1,10 +1,10 @@
-@extends('layout.main')
+@extends('main.layout')
 @section('content')
     <center>
         <b>
             <h2>LIST DATA JURUSAN</h2>
             <a href="/jurusan/create" class="button-primary">TAMBAH DATA</a>
-            @include('layout.info')
+            @include('layouts.info')
 
             <table cellpadding="10">
                 <tr>
@@ -18,7 +18,7 @@
                     <td> {{ $j->nama_jurusan }} </td>
                     <td>
                         <a href="/jurusan/edit/{{$j->id}}" class="button-warning">EDIT</a>
-                        <a href="/jurusan/destroy/{{$j->id}}" class="button-warning" onclick="return confirm('Yakin inigin menghapus?')">HAPUS</a>
+                        <a href="/jurusan/destroy/{{$j->id}}" class="button-danger" onclick="return confirm('Yakin inigin menghapus?')">HAPUS</a>
                     </td>
                 </tr>
                 @endforeach

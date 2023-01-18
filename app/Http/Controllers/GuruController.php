@@ -49,7 +49,7 @@ class GuruController extends Controller
             'password' => 'required'
         ]);
 
-        Guru::created($request->all());
+        Guru::create($request->all());
         return redirect('/guru/index')->with('success', 'Data Guru Berhasil Ditambahkan');
     }
 

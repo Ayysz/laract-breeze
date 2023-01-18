@@ -7,7 +7,7 @@
             <h2>LIST DATA GURU</h2>
             <a href="/guru/create" class="button-primary">Tambah Data</a>
 
-            @include('layout.info')
+            @include('layouts.info')
             
             <table cellpadding="10">
                 <tr>

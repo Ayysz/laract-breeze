@@ -9,7 +9,7 @@ class Mengajar extends Model
 {
     use HasFactory;
 
-    protected $table = 'menagajars';
+    protected $table = 'mengajars';
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
 
