@@ -2,7 +2,7 @@
 @section('content')
     <center>
         <h2>EDIT DATA KELAS</h2>
-        <form action="/kelas/edit/{{$kelas->id}}" method="post">
+        <form action="/kelas/update/{{$kelas->id}}" method="post">
             @csrf
             <table width="50%">
                 <tr>

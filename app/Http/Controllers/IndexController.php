@@ -11,6 +11,11 @@ use Inertia\Inertia;
 class IndexController extends Controller
 {
     //
+
+    public function index() {
+        return Inertia::render('Login');
+    }
+
     public function home() {
 
         if(session('user')) return back();
