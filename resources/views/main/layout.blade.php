@@ -18,6 +18,9 @@
     {{-- MENU --}}
     <div class="menu">
         <b>
+            @if(session('user'))
+                <p>{{session('user')}}</p>
+            @endif
             <a href="/home">HOME</a>
                 <a href="/guru/index">GURU</a>
                 <a href="/jurusan/index">JURUSAN</a>

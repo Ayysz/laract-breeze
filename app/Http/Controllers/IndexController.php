@@ -23,10 +23,14 @@ class IndexController extends Controller
         return Inertia::render('Home');
     }
 
+    public function welcome() {
+        return Inertia::render('Home');
+    }
+
     public function loginAdmin(Request $req) {
         
         // check query to search admin and password same
-        $admin = Adminstrator::where('id_admin', $req->idAdmin)->where('password', $req->password)->first();
+        $admin = Adminstrator::where('kode_admin', $req->idAdmin)->where('password', $req->password)->first();
         
         if (!$admin) return back()->with('error', 'Kode admin atau password salah');
 

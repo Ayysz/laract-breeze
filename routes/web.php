@@ -24,9 +24,9 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/home', [IndexController::class, 'home']);
+Route::get('/home', [IndexController::class, 'welcome']);
 
-Route::prefix('login', function(){
+Route::prefix('login')->group(function(){
     Route::post('/admin', [IndexController::class, 'loginAdmin']);
     Route::post('/siswa', [IndexController::class, 'loginSiswa']);
     Route::post('/guru', [IndexController::class, 'loginGuru']);

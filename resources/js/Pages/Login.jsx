@@ -6,13 +6,13 @@ import '../../css/style.css';
 
 const Login = () => {
     const { error } = usePage().props.errors;
-    const {idAdmin, setIdAdmin } = useState();
-    const {nis, setNis } = useState(); 
-    const {nip, setNip } = useState(); 
-    const {password, setPassword } = useState(); 
+    const [idAdmin, setIdAdmin ] = useState();
+    const [nis, setNis ] = useState(); 
+    const [nip, setNip ] = useState(); 
+    const [password, setPassword ] = useState(); 
     
     const [formAdminVisible, setFormAdminVisible] = useState(false);
-    const [formsiswaVisible, setFormsiswaVisible] = useState(false);
+    const [formSiswaVisible, setFormSiswaVisible] = useState(false);
     const [formGuruVisible, setFormguruVisible] = useState(false);
 
     const handleLoginAdmin = () => {
@@ -29,23 +29,29 @@ const Login = () => {
         })
     }
     
-    const handleLoginGuru = () => {
-        Inertia.post('/login/guru', {
-            nip,
-            password
-        })
+    const handleLoginGuru = async () => {
+        try {
+            Inertia.post('/login/guru', {
+                nip,
+                password
+            })
+            
+        } catch (error) {
+            console.warn(e.message);
+        }
     }
 
     function resetVisible() {
         return setFormAdminVisible(false),
                 setFormguruVisible(false),
-                setFormsiswaVisible(false)
+                setFormSiswaVisible(false),
+                setPassword("")
     }
 
     const visibleHandle = (cond) => {
         resetVisible()
         if (cond === 1) return setFormAdminVisible(true)
-        if (cond === 2) return setFormsiswaVisible(true)
+        if (cond === 2) return setFormSiswaVisible(true)
         if (cond === 3) return setFormguruVisible(true)
     }
 
@@ -59,20 +65,20 @@ const Login = () => {
         <div className="menu">
             <b><a href="#" className="active">Home</a></b>
         </div>
-        <div className="kiri">
+        <div className="kiri-atas">
             <fieldset>
                 <legend></legend>
                 <center>
-                    <button className="button"
-                        onClick={visibleHandle(1)}>
+                    <button className="button-primary"
+                        onClick={() => visibleHandle(1)}>
                         Admin
                     </button>
-                    <button className="button"
-                        onClick={visibleHandle(2)}>
+                    <button className="button-primary"
+                        onClick={() => visibleHandle(2)}>
                         Siswa
                     </button>
-                    <button className="button"
-                        onClick={visibleHandle(3)}>
+                    <button className="button-primary"
+                        onClick={() => visibleHandle(3)}>
                         Guru
                     </button>
                     <hr />
@@ -82,7 +88,35 @@ const Login = () => {
 
                 {/* Form Guru */}
                 <div style={{ display: formGuruVisible ? 'block' : 'none' }}>
-                    <Form error={error} title="Guru" type="NIS" />
+                    <Form error={error} 
+                    title="Guru" 
+                    type="NIP"
+                    handleChangeCode={(data) => setNip(data)}
+                    handleChangePass={(data) => setPassword(data)}
+                    buttonClick={handleLoginGuru}
+                    />
+                </div>
+            
+                {/* Form Admin */}
+                <div style={{ display: formAdminVisible ? 'block' : 'none' }}>
+                    <Form error={error} 
+                    title="Admin" 
+                    type="Kode Admin"
+                    handleChangeCode={(data) => setIdAdmin(data)}
+                    handleChangePass={(data) => setPassword(data)}
+                    buttonClick={handleLoginAdmin}
+                    />
+                </div>
+
+                {/* Form Siswa */}
+                <div style={{ display: formSiswaVisible ? 'block' : 'none' }}>
+                    <Form error={error} 
+                    title="Siswa" 
+                    type="NIS"
+                    handleChangeCode={(data) => setNis(data)}
+                    handleChangePass={(data) => setPassword(data)}
+                    buttonClick={handleLoginSiswa}
+                    />
                 </div>
 
                 
