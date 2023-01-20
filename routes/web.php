@@ -55,7 +55,7 @@ Route::prefix('/jurusan')->group(function() {
     Route::post('/store', [JurusanController::class, 'store']);
     Route::get('/edit/{jurusan}', [JurusanController::class, 'edit']);
     Route::post('/update/{jurusan}', [JurusanController::class, 'update']);
-    Route::get('/destroy/{jurusan}', [GuruController::class, 'destroy']);
+    Route::get('/destroy/{jurusan}', [JurusanController::class, 'destroy']);
 });
 
 Route::prefix('/mapel')->group(function() {
@@ -64,7 +64,7 @@ Route::prefix('/mapel')->group(function() {
     Route::post('/store', [MapelController::class, 'store']);
     Route::get('/edit/{mapel}', [MapelController::class, 'edit']);
     Route::post('/update/{mapel}', [MapelController::class, 'update']);
-    Route::get('/destroy/{mapel}', [GuruController::class, 'destroy']);
+    Route::get('/destroy/{mapel}', [MapelController::class, 'destroy']);
 });
 
 Route::prefix('/kelas')->group(function() {
@@ -73,7 +73,7 @@ Route::prefix('/kelas')->group(function() {
     Route::post('/store', [KelasController::class, 'store']);
     Route::get('/edit/{kelas}', [KelasController::class, 'edit']);
     Route::post('/update/{kelas}', [KelasController::class, 'update']);
-    Route::get('/destroy/{kelas}', [GuruController::class, 'destroy']);
+    Route::get('/destroy/{kelas}', [KelasController::class, 'destroy']);
 });
 
 Route::prefix('/siswa')->group(function() {
@@ -82,7 +82,7 @@ Route::prefix('/siswa')->group(function() {
     Route::post('/store', [SiswaController::class, 'store']);
     Route::get('/edit/{siswa}', [SiswaController::class, 'edit']);
     Route::post('/update/{siswa}', [SiswaController::class, 'update']);
-    Route::get('/destroy/{siswa}', [GuruController::class, 'destroy']);
+    Route::get('/destroy/{siswa}', [SiswaController::class, 'destroy']);
 });
 
 Route::prefix('/mengajar')->group(function() {
@@ -91,7 +91,7 @@ Route::prefix('/mengajar')->group(function() {
     Route::post('/store', [MengajarController::class, 'store']);
     Route::get('/edit/{mengajar}', [MengajarController::class, 'edit']);
     Route::post('/update/{mengajar}', [MengajarController::class, 'update']);
-    Route::get('/destroy/{mengajar}', [GuruController::class, 'destroy']);
+    Route::get('/destroy/{mengajar}', [MengajarController::class, 'destroy']);
 });
 
 Route::prefix('/nilai')->group(function() {

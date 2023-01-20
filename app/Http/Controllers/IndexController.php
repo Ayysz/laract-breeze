@@ -73,7 +73,7 @@ class IndexController extends Controller
 
         $req->session()->regenerateToken();
 
-        return redirect('/home');
+        return redirect('/');
 
     }
 
